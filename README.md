@@ -24,7 +24,7 @@
 网站目前覆盖以下方向：
 
 - Audit & Accounting：审计函证、IPO 盈余管理、内部控制分析
-- Business Research & Consulting：大众汽车、陕西文旅、好利来、百度健康、TRR 论文
+- Business Research & Consulting：大众汽车、陕西文旅、好利来、百度健康
 - AI x Finance：FinanceDoc AI、AGI 公司治理研究
 - Product & Coding：City Pizza 微信点餐小程序
 
@@ -71,7 +71,7 @@ The core career story is:
 The portfolio currently covers:
 
 - Audit & Accounting: audit confirmation, IPO earnings management and internal control analysis
-- Business Research & Consulting: Volkswagen, Shaanxi Tourism, Holiland, Baidu Health and TRR research
+- Business Research & Consulting: Volkswagen, Shaanxi Tourism, Holiland and Baidu Health
 - AI x Finance: FinanceDoc AI and AGI corporate governance research
 - Product & Coding: City Pizza WeChat ordering mini program
 

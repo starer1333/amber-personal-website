@@ -30,7 +30,7 @@ I18N = {
         "download_resume": "下载简历",
         "chips": ["Audit & Accounting", "Business Research", "AI × Finance", "AI × Healthcare", "People Operations"],
         "metrics": [
-            ("11", "覆盖审计、商业研究、AI、医疗健康和产品原型的作品集项目"),
+            ("10", "覆盖审计、商业研究、AI、医疗健康和产品原型的作品集项目"),
             ("30+", "实习期间支持的企业函证流程案例"),
             ("4", "核心方向：会计审计、行业研究、AI 工作流、People Ops"),
         ],
@@ -108,7 +108,7 @@ I18N = {
         "download_resume": "Download Resume",
         "chips": ["Audit & Accounting", "Business Research", "AI × Finance", "AI × Healthcare", "People Operations"],
         "metrics": [
-            ("11", "Portfolio projects across audit, research, AI, healthcare and product"),
+            ("10", "Portfolio projects across audit, research, AI, healthcare and product"),
             ("30+", "Audit confirmation cases supported during internship"),
             ("4", "Core directions: accounting, research, AI workflow, people ops"),
         ],
@@ -120,17 +120,17 @@ I18N = {
         "pillars": [
             (
                 "Accounting & Audit Foundation",
-                "I understand audit workflows, financial data processing and documentation logic, and can turn repetitive tasks into clear processes.",
+                "Audit workflows, financial data processing and documentation logic are organized into clear, repeatable processes.",
                 ["Audit", "Excel", "VBA"],
             ),
             (
                 "Business Research Thinking",
-                "I structure industry, company, business model and financial analysis in a consulting-style way.",
+                "Industry, company, business model and financial analysis are structured into consulting-style conclusions.",
                 ["Research", "Strategy", "PPT"],
             ),
             (
                 "AI-enabled Workflow Builder",
-                "I explore AI-assisted coding, LLM APIs and knowledge-base tools to process unstructured business materials.",
+                "AI-assisted coding, LLM APIs and knowledge-base tools are used to process unstructured business materials.",
                 ["Python", "Streamlit", "LLM"],
             ),
         ],
@@ -472,12 +472,10 @@ DOWNLOAD_FILES = {
     "ai_finance_bp": "assets/projects/AI 财务BP 2028.pdf",
     "ipo_earnings_pdf": "assets/projects/会计师事务所审计供给能力对IPO企业应计盈余管理的影响研究.pdf",
     "ipo_earnings_do": "assets/projects/会计师事务所审计供给能力对IPO企业应计盈余管理的影响研究.do",
-    "longi_internal_control_pdf": "assets/projects/长飞光纤 内部控制分析.pdf",
     "longi_internal_control_pptx": "assets/projects/长飞光纤 内部控制分析.pptx",
     "holiland": "assets/projects/好利来营销策划案.pdf",
     "agi_governance_pdf": "assets/projects/AGI引入对公司治理效果的影响研究.pdf",
     "agi_defense_pdf": "assets/projects/论文答辩 .pdf",
-    "trr_paper": "assets/projects/TRR论文.pdf",
     "shaanxi_tourism": "assets/projects/陕西文旅公司分析.pptx",
     "volkswagen": "assets/projects/大众汽车集团行业研究.pptx",
     "baidu_health": "assets/projects/百度健康行业研究框架与战略分析.pdf",
@@ -761,7 +759,7 @@ PROJECTS = {
             "logic": {
                 "Problem": "制造业企业业务流程复杂，内部控制有效性会影响财务质量与经营风险",
                 "Method": "结合内部控制框架、财务指标和业务流程进行风险识别",
-                "Output": "形成内部控制分析 PDF 与 PPTX 展示材料",
+                "Output": "形成内部控制分析展示材料与风险识别结论",
                 "Value": "展示会计审计基础、流程分析和风险识别能力",
             },
             "details": [
@@ -771,38 +769,11 @@ PROJECTS = {
                 "**报告表达：** 将分析过程整理为 PDF 与 PPTX，便于审计 / 会计岗位展示。",
             ],
             "tools": ["Internal Control", "Financial Analysis", "Excel", "PPT"],
-            "deliverables": ["内部控制分析 PDF", "内部控制分析 PPTX"],
+            "deliverables": ["内部控制分析展示材料", "风险识别结论"],
             "target_roles": ["审计", "会计", "内控", "风险管理"],
             "downloads": [
-                {"label": "下载 PDF", "path": DOWNLOAD_FILES["longi_internal_control_pdf"]},
                 {"label": "下载 PPTX", "path": DOWNLOAD_FILES["longi_internal_control_pptx"]},
             ],
-            "github_url": "",
-            "demo_url": "",
-            "image_file": "",
-        },
-        {
-            "id": "trr_shipping_forecast",
-            "name": "干散货运价预测与可解释性分析",
-            "category": "Business Research & Consulting",
-            "tags": ["航运市场", "预测模型", "可解释性分析", "研究论文"],
-            "summary": "围绕干散货运价预测问题展开研究，结合市场变量、预测模型和可解释性分析形成论文成果。",
-            "logic": {
-                "Problem": "干散货运价受供需、宏观、能源和航线因素影响，波动较大且解释难度高",
-                "Method": "整理运输市场变量并构建预测与解释框架",
-                "Output": "形成 TRR 论文文本和模型解释结论",
-                "Value": "展示数据研究、行业理解和可解释分析能力",
-            },
-            "details": [
-                "**研究问题拆解：** 将运价波动拆分为需求、供给、能源价格和市场预期等影响维度。",
-                "**数据整理：** 对航运市场和宏观变量进行清洗、匹配和建模准备。",
-                "**预测框架构建：** 使用模型输出结果分析运价变化，并关注预测结果的可解释性。",
-                "**论文表达：** 将方法、结果和行业含义整理为研究论文，便于展示数据研究能力。",
-            ],
-            "tools": ["Data Cleaning", "Forecasting", "Research Writing", "Explainability"],
-            "deliverables": ["研究论文", "预测分析框架", "可解释性结论"],
-            "target_roles": ["行业研究", "数据分析", "商业分析"],
-            "downloads": [{"label": "下载论文 PDF", "path": DOWNLOAD_FILES["trr_paper"]}],
             "github_url": "",
             "demo_url": "",
             "image_file": "",
@@ -906,10 +877,11 @@ h1, h2, h3, p {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
-  gap: 32px;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
+  gap: 28px;
   align-items: center;
   padding: 24px 0 56px;
+  overflow: hidden;
 }
 
 .eyebrow {
@@ -921,16 +893,18 @@ h1, h2, h3, p {
 }
 
 .hero h1 {
-  font-size: clamp(48px, 7vw, 72px);
+  font-size: clamp(42px, 6vw, 64px);
   line-height: 1.02;
   margin: 0 0 18px;
+  max-width: 100%;
 }
 
 .hero-subtitle {
   color: var(--text-secondary);
-  font-size: clamp(19px, 2.3vw, 26px);
+  font-size: clamp(18px, 2vw, 23px);
   line-height: 1.45;
   margin-bottom: 28px;
+  max-width: 820px;
 }
 
 .hero-card, .card, .project-card {
@@ -1027,6 +1001,12 @@ h1, h2, h3, p {
 
 .card, .project-card {
   padding: 28px;
+}
+
+.card p {
+  margin: 14px 0 0;
+  text-align: left;
+  line-height: 1.55;
 }
 
 .project-card {
@@ -1145,6 +1125,16 @@ div.stButton > button, div.stDownloadButton > button, a[data-testid="stLinkButto
   border-radius: 999px;
   min-height: 42px;
   font-weight: 650;
+}
+
+@media (max-width: 1100px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card {
+    max-width: 520px;
+  }
 }
 
 @media (max-width: 860px) {
