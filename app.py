@@ -1,3 +1,4 @@
+import os
 from html import escape
 from pathlib import Path
 
@@ -27,9 +28,9 @@ I18N = {
         ),
         "view_projects": "查看项目",
         "download_resume": "下载简历",
-        "chips": ["Audit & Accounting", "Business Research", "AI x Finance", "People Operations"],
+        "chips": ["Audit & Accounting", "Business Research", "AI × Finance", "AI × Healthcare", "People Operations"],
         "metrics": [
-            ("8", "覆盖审计、商业研究、AI 和产品原型的作品集项目"),
+            ("11", "覆盖审计、商业研究、AI、医疗健康和产品原型的作品集项目"),
             ("30+", "实习期间支持的企业函证流程案例"),
             ("4", "核心方向：会计审计、行业研究、AI 工作流、People Ops"),
         ],
@@ -105,9 +106,9 @@ I18N = {
         ),
         "view_projects": "View Projects",
         "download_resume": "Download Resume",
-        "chips": ["Audit & Accounting", "Business Research", "AI x Finance", "People Operations"],
+        "chips": ["Audit & Accounting", "Business Research", "AI × Finance", "AI × Healthcare", "People Operations"],
         "metrics": [
-            ("8", "Portfolio projects across audit, research, AI and product"),
+            ("11", "Portfolio projects across audit, research, AI, healthcare and product"),
             ("30+", "Audit confirmation cases supported during internship"),
             ("4", "Core directions: accounting, research, AI workflow, people ops"),
         ],
@@ -465,6 +466,352 @@ PROJECTS = {
         },
     ],
 }
+
+
+DOWNLOAD_FILES = {
+    "ai_finance_bp": "assets/projects/AI 财务BP 2028.pdf",
+    "ipo_earnings_pdf": "assets/projects/会计师事务所审计供给能力对IPO企业应计盈余管理的影响研究.pdf",
+    "ipo_earnings_do": "assets/projects/会计师事务所审计供给能力对IPO企业应计盈余管理的影响研究.do",
+    "longi_internal_control_pdf": "assets/projects/长飞光纤 内部控制分析.pdf",
+    "longi_internal_control_pptx": "assets/projects/长飞光纤 内部控制分析.pptx",
+    "holiland": "assets/projects/好利来营销策划案.pdf",
+    "agi_governance_pdf": "assets/projects/AGI引入对公司治理效果的影响研究.pdf",
+    "agi_defense_pdf": "assets/projects/论文答辩 .pdf",
+    "trr_paper": "assets/projects/TRR论文.pdf",
+    "shaanxi_tourism": "assets/projects/陕西文旅公司分析.pptx",
+    "volkswagen": "assets/projects/大众汽车集团行业研究_中文修订版.pptx",
+    "baidu_health": "assets/projects/百度健康行业研究框架与战略分析.pdf",
+}
+
+
+PROJECT_LINKS = {
+    "personal_website": "https://github.com/starer1333/amber-personal-website",
+    "city_pizza": "https://github.com/starer1333/CSPS-mini-program",
+    "financedoc_ai_github": "https://github.com/starer1333/financedoc-ai",
+    "financedoc_ai_demo": "https://financedoc-ai.streamlit.app/",
+    "auditflow_demo": "https://auditflow13.streamlit.app/",
+}
+
+
+CATEGORIES = {
+    "中文": ["全部", "Audit & Accounting", "Business Research & Consulting", "AI × Finance", "AI × Healthcare", "Product & Coding", "People Operations"],
+    "English": ["All", "Audit & Accounting", "Business Research & Consulting", "AI × Finance", "AI × Healthcare", "Product & Coding", "People Operations"],
+}
+
+
+PROJECTS = {
+    "中文": [
+        {
+            "id": "audit_confirmation",
+            "name": "审计函证流程与 AI 辅助数据处理",
+            "category": "Audit & Accounting",
+            "tags": ["审计流程", "Excel", "VBA", "DeepSeek", "Dify"],
+            "summary": "在天职国际函证中心实习期间，我参与 30+ 企业函证流程管理，覆盖发函、跟踪、回函核验和异常处理，并使用 Excel、VBA 与 AI 工具优化重复性数据处理流程。",
+            "logic": {
+                "Problem": "函证流程存在大量重复数据整理、状态跟踪和异常核验工作",
+                "Method": "用 Excel 高级函数、数据透视表、VBA 与 AI 工具辅助流程处理",
+                "Output": "形成进度统计、自动化提取模板、批量重命名脚本和知识库探索",
+                "Value": "提升函证流程透明度，支持项目经理更快定位异常事项",
+            },
+            "details": [
+                "**函证流程全周期管理：** 独立负责 30+ 家企业函证流程，跟进发函、回函核验、异常处理和项目进度更新，协助保证函证流程闭环。",
+                "**数据整理与效率优化：** 使用 VLOOKUP、XLOOKUP、COUNTIF、数据透视表等工具批量处理函证数据，并设计自动化提取模板。",
+                "**AI 辅助自动化实践：** 使用 DeepSeek 辅助编写 VBA 脚本，实现文件批量重命名、数据清洗和异常标注，减少重复性手工处理。",
+                "**业务规则结构化：** 将函证核验、资金流水备注、异常情况处理等业务规则转化为可被 AI 理解的指令和判断逻辑。",
+                "**智能化工具探索：** 参与 Dify 函证知识库、RPA 与 OCR 应用测试，理解 AI 在审计流程中的辅助价值。",
+            ],
+            "tools": ["Excel", "VBA", "DeepSeek", "Dify", "RPA/OCR"],
+            "deliverables": ["脱敏流程总结", "函证进度统计", "自动化处理模板"],
+            "target_roles": ["审计", "会计", "财务共享", "审计数据分析"],
+            "downloads": [],
+            "github_url": "",
+            "demo_url": "",
+            "image_file": "",
+        },
+        {
+            "id": "ipo_earnings",
+            "name": "IPO 企业盈余管理研究",
+            "category": "Audit & Accounting",
+            "tags": ["审计研究", "IPO", "Stata", "修正 Jones 模型"],
+            "summary": "基于 2011-2024 年 A 股 IPO 公司样本，研究审计师行业专长是否能够抑制 IPO 企业应计盈余管理。",
+            "logic": {
+                "Problem": "IPO 企业可能存在美化上市业绩和应计盈余管理动机",
+                "Method": "使用修正 Jones 模型测度 AbsDA，并构建审计师行业专长变量",
+                "Output": "完成固定效应回归、工具变量、机制分析和论文写作",
+                "Value": "解释审计供给能力对 IPO 盈余质量的治理作用",
+            },
+            "details": [
+                "**研究问题界定：** 聚焦 IPO 企业在上市前后可能存在的应计盈余管理行为，分析审计供给能力的治理作用。",
+                "**变量设计：** 使用审计师行业专长衡量事务所审计供给能力，并用修正 Jones 模型测度应计盈余管理程度。",
+                "**模型构建：** 构建包含年度固定效应的面板回归模型，检验行业专长与应计盈余管理之间的关系。",
+                "**稳健性与内生性处理：** 使用同行业同年度行业专长均值作为工具变量，缓解潜在内生性问题。",
+                "**机制分析：** 进一步讨论事务所规模和审计收费在行业专长影响盈余管理过程中的作用。",
+            ],
+            "tools": ["CSMAR", "Stata", "Modified Jones", "Fixed Effects", "IV"],
+            "deliverables": ["研究论文", "变量定义表", "Stata do 文件"],
+            "target_roles": ["审计", "会计研究", "数据分析"],
+            "downloads": [
+                {"label": "下载论文 PDF", "path": DOWNLOAD_FILES["ipo_earnings_pdf"]},
+                {"label": "下载 Stata do 文件", "path": DOWNLOAD_FILES["ipo_earnings_do"]},
+            ],
+            "github_url": "",
+            "demo_url": "",
+            "image_file": "",
+        },
+        {
+            "id": "volkswagen_strategy",
+            "name": "大众汽车集团行业研究与战略财务分析",
+            "category": "Business Research & Consulting",
+            "tags": ["汽车行业", "战略分析", "财务分析", "咨询式 Deck"],
+            "summary": "以大众汽车集团为对象，分析收入横盘、利润率下滑、中国市场压力和软件转型瓶颈，形成咨询式战略财务分析演示文稿。",
+            "logic": {
+                "Problem": "传统车企在电动化和软件定义汽车时代面临利润质量修复压力",
+                "Method": "拆解行业价值池迁移、财务表现、竞争格局和软件平台瓶颈",
+                "Output": "形成战略财务分析 deck、核心结论页和利润率修复建议",
+                "Value": "把复杂行业变化转化为可讨论的战略财务判断",
+            },
+            "details": [
+                "**行业趋势判断：** 从电动化、软件定义汽车、AI 出行和中国市场竞争角度分析汽车行业价值池迁移。",
+                "**财务问题拆解：** 对大众收入、营业利润率、净利润、现金流和 ROE 进行拆解，判断利润质量压力来源。",
+                "**竞争格局分析：** 对比丰田、特斯拉、比亚迪及中国车企，识别大众面临的效率、软件和成本压力。",
+                "**战略瓶颈诊断：** 分析 CARIAD、软件平台、电子电气架构和中国市场产品定义问题。",
+                "**咨询式表达：** 将分析结果整理为高信息密度 deck，形成核心结论、利润桥、战略建议和风险提示。",
+            ],
+            "tools": ["Annual Report", "Profit Bridge", "DuPont", "Competition Analysis", "PPT"],
+            "deliverables": ["战略财务分析 deck", "核心结论页", "利润率修复建议"],
+            "target_roles": ["行业研究", "咨询", "战略分析", "商业分析"],
+            "downloads": [{"label": "下载项目 PPTX", "path": DOWNLOAD_FILES["volkswagen"]}],
+            "github_url": "",
+            "demo_url": "",
+            "image_file": "",
+        },
+        {
+            "id": "shaanxi_tourism",
+            "name": "陕西文旅 IPO 商业分析",
+            "category": "Business Research & Consulting",
+            "tags": ["IPO", "文旅行业", "商业模式", "财务分析"],
+            "summary": "围绕陕西旅游文化产业股份有限公司 IPO，分析文旅行业增长、核心资产壁垒、演艺 + 索道业务模型和盈利质量。",
+            "logic": {
+                "Problem": "如何判断一家文旅公司的 IPO 投资价值和商业壁垒",
+                "Method": "拆解行业增长、西安流量、文化 IP、演艺与索道核心业务",
+                "Output": "形成 IPO 商业分析 deck、核心资产分析和盈利质量判断",
+                "Value": "帮助快速理解文旅资产的流量转化和资本市场叙事",
+            },
+            "details": [
+                "**行业增长逻辑分析：** 从国内旅游人次、文旅消费升级和体验式旅游趋势判断行业增长基础。",
+                "**核心资产识别：** 分析西安文化 IP、华清宫《长恨歌》和华山西峰索道等资源型资产的稀缺性。",
+                "**商业模式拆解：** 将公司业务拆解为演艺、索道和其他业务，判断收入结构和流量转化能力。",
+                "**盈利质量判断：** 结合净利率、现金流和核心业务占比，分析公司盈利能力的可持续性。",
+                "**资本市场叙事：** 将行业、资产、业务和财务逻辑整合成 IPO 路演式分析框架。",
+            ],
+            "tools": ["Prospectus", "Business Model", "Financial Analysis", "PPT"],
+            "deliverables": ["IPO 商业分析 deck", "核心资产分析", "盈利质量判断"],
+            "target_roles": ["咨询", "投研", "商业分析"],
+            "downloads": [{"label": "下载项目 PPTX", "path": DOWNLOAD_FILES["shaanxi_tourism"]}],
+            "github_url": "",
+            "demo_url": "",
+            "image_file": "",
+        },
+        {
+            "id": "holiland_marketing",
+            "name": "好利来营销策划案",
+            "category": "Business Research & Consulting",
+            "tags": ["营销策略", "消费者行为", "4P", "品牌分析"],
+            "summary": "以好利来为研究对象，围绕品牌年轻化、IP 联名、消费者行为和 4P 策略进行系统分析。",
+            "logic": {
+                "Problem": "高频 IP 联名带来流量，也可能造成审美疲劳和品牌资产弱化",
+                "Method": "结合 PEST、SWOT、STP、4P 和消费者行为分析",
+                "Output": "形成营销策划报告、消费者分析和品牌策略建议",
+                "Value": "把品牌热度问题转化为可落地的营销优化路径",
+            },
+            "details": [
+                "**品牌与业务梳理：** 分析好利来发展阶段、核心产品系列、直营门店模式和多品牌矩阵。",
+                "**市场环境分析：** 使用 PEST、SWOT 和竞品分析框架，判断烘焙行业竞争和消费升级趋势。",
+                "**消费者行为研究：** 从消费者画像、购买动机、6W1H 和 Z 世代情绪价值角度分析目标客群。",
+                "**问题诊断：** 识别高频 IP 联名、健康化转型滞后、IP 依赖和定价争议等品牌问题。",
+                "**策略建议输出：** 基于 4P 框架提出产品、价格、渠道和促销优化建议。",
+            ],
+            "tools": ["PEST", "SWOT", "STP", "4P", "Consumer Analysis"],
+            "deliverables": ["营销策划报告", "消费者分析", "品牌策略建议"],
+            "target_roles": ["市场", "咨询", "商业分析"],
+            "downloads": [{"label": "下载报告 PDF", "path": DOWNLOAD_FILES["holiland"]}],
+            "github_url": "",
+            "demo_url": "",
+            "image_file": "",
+        },
+        {
+            "id": "financedoc_ai",
+            "name": "FinanceDoc AI｜财务文档智能分析与风险审阅系统",
+            "category": "AI × Finance",
+            "tags": ["Streamlit", "DeepSeek API", "RAG", "Multi-Agent", "财务分析", "风险审阅"],
+            "summary": "基于 Streamlit 搭建财务文档智能分析系统，支持文档上传、表格解析、财务摘要、风险识别、RAG 问答、多 Agent 审阅和底稿导出。",
+            "logic": {
+                "Problem": "财务文档、审计报告和尽调材料信息密度高，人工初筛耗时",
+                "Method": "使用 Streamlit + DeepSeek API + RAG + 规则识别构建分析流程",
+                "Output": "生成财务摘要、风险审阅、问答证据片段和分析底稿",
+                "Value": "将财务数据录入、风险审阅和底稿生成流程产品化",
+            },
+            "details": [
+                "**系统工作流设计：** 将项目拆解为项目概览、数据输入、财务摘要、风险审阅、RAG 问答、Multi-Agent 分析和底稿导出七个模块。",
+                "**多格式文档解析：** 支持上传 PDF、Excel、CSV 文件，并通过 PyPDF2、pandas、openpyxl 提取文本和表格信息。",
+                "**关键指标识别：** 自动识别收入、成本、利润、现金流、资产负债等关键字段，并生成财务摘要和趋势图表。",
+                "**风险审阅设计：** 基于规则识别收入下降、利润承压、现金流质量、负债率、费用率、审计意见和关联交易等风险。",
+                "**RAG 与 Multi-Agent：** 接入 DeepSeek API，结合 RAG 检索和多角色 Agent 完成审阅。",
+                "**底稿导出：** 支持导出 Markdown、CSV、Word 和 PDF 审计底稿，使项目更接近真实财务分析 / 审计辅助工具。",
+            ],
+            "tools": ["Python", "Streamlit", "Pandas", "Plotly", "PyPDF2", "openpyxl", "DeepSeek API", "RAG", "Multi-Agent"],
+            "deliverables": ["在线 Demo", "GitHub 仓库", "财务摘要", "风险审阅结果", "分析底稿导出"],
+            "target_roles": ["AI 财务", "审计数据分析", "财务分析", "商业分析", "AI 产品助理"],
+            "downloads": [{"label": "下载项目说明", "path": DOWNLOAD_FILES["ai_finance_bp"]}],
+            "github_url": PROJECT_LINKS["financedoc_ai_github"],
+            "demo_url": PROJECT_LINKS["financedoc_ai_demo"],
+            "image_file": "",
+        },
+        {
+            "id": "agi_governance",
+            "name": "AGI 引入对公司治理效果的影响研究",
+            "category": "AI × Finance",
+            "tags": ["AGI", "公司治理", "文本挖掘", "面板回归"],
+            "summary": "研究 AGI 引入是否能够改善上市公司治理效果，关注盈余管理、信息披露质量、高管薪酬和关联交易等治理维度。",
+            "logic": {
+                "Problem": "AI / AGI 是否能缓解管理层信息优势并改善公司治理",
+                "Method": "基于年报 MD&A 文本构建 AGI 关键词词典并匹配治理变量",
+                "Output": "完成技术路线、变量设计、面板回归框架和答辩材料",
+                "Value": "把 AI 战略文本转化为可检验的公司治理研究变量",
+            },
+            "details": [
+                "**研究框架设计：** 围绕 AGI、信息不对称和公司治理效果之间的关系，参与理论机制推导和研究假设设计。",
+                "**关键词词典构建：** 基于 AGI 与智能体相关理论文献，构建年报 MD&A 文本扫描所需的关键词词典。",
+                "**文本数据处理：** 使用 Python 对 A 股上市公司年报文本进行关键词匹配和词频统计，构建企业层面的 AGI 引入指标。",
+                "**实证数据整理：** 使用 Excel / Stata 整合 CSMAR、Wind、CNRDS 等数据库变量，完成多表匹配和样本清洗。",
+                "**模型与结果分析：** 参与面板回归、调节效应和稳健性检验，用于分析 AGI 对公司治理变量的影响。",
+            ],
+            "tools": ["Python", "Text Mining", "Stata", "CSMAR", "Wind", "CNRDS"],
+            "deliverables": ["项目申请书", "答辩材料", "变量设计", "技术路线图"],
+            "target_roles": ["学术研究", "AI 商业分析", "数据分析"],
+            "downloads": [
+                {"label": "下载项目申请书", "path": DOWNLOAD_FILES["agi_governance_pdf"]},
+                {"label": "下载答辩材料", "path": DOWNLOAD_FILES["agi_defense_pdf"]},
+            ],
+            "github_url": "",
+            "demo_url": "",
+            "image_file": "",
+        },
+        {
+            "id": "city_pizza",
+            "name": "City Pizza 微信点餐小程序",
+            "category": "Product & Coding",
+            "tags": ["微信小程序", "产品原型", "AI-assisted Coding", "商家后台"],
+            "summary": "使用 AI 辅助开发微信点餐小程序原型，包含用户端点餐流程和商家端后台管理模块。",
+            "logic": {
+                "Problem": "小型餐饮门店需要可配置的点餐、商品和订单管理工具",
+                "Method": "设计用户点餐路径、商品规格逻辑和商家后台管理模块",
+                "Output": "完成小程序原型、商家后台页面和 GitHub 仓库沉淀",
+                "Value": "展示从业务流程到产品原型的 AI-assisted coding 能力",
+            },
+            "details": [
+                "**需求拆解：** 将餐饮门店需求拆解为用户点餐、购物车、订单提交、会员体系和商家后台管理模块。",
+                "**页面结构设计：** 设计首页、点餐、订单、我的四个用户端 Tab，并补充商家端 dashboard、菜品、分类、订单、会员、优惠券、报表等页面。",
+                "**商品管理逻辑：** 实现菜品名称、详细介绍、分类、价格、图片 URL、排序和上架状态等字段管理。",
+                "**规格与加料管理：** 支持单选 / 多选规格组、规格项名称、价格、编辑和删除，用于模拟餐饮商品配置场景。",
+                "**GitHub 项目沉淀：** 将小程序代码上传到 GitHub，作为 AI-assisted coding 和产品原型落地能力的证明。",
+            ],
+            "tools": ["WeChat Mini Program", "JavaScript", "WXML", "WXSS", "GitHub"],
+            "deliverables": ["小程序原型", "商家后台页面", "GitHub 仓库"],
+            "target_roles": ["产品", "运营", "AI-assisted Coding"],
+            "downloads": [],
+            "github_url": PROJECT_LINKS["city_pizza"],
+            "demo_url": "",
+            "image_file": "",
+        },
+        {
+            "id": "baidu_health_strategy",
+            "name": "百度健康行业研究框架与战略分析",
+            "category": "Business Research & Consulting",
+            "tags": ["行业研究", "互联网医疗", "AI × Healthcare", "商业模式分析", "战略分析"],
+            "summary": "围绕百度健康在中国数字健康与互联网医疗行业中的平台机会展开研究，分析其行业政策、商业模式、竞争格局、财务压力和战略定位。",
+            "logic": {
+                "Problem": "百度健康不适合简单复制京东健康的重履约医药零售模式",
+                "Method": "从行业政策、商业模式、竞争对标、财务经营和国际案例四个维度展开分析",
+                "Output": "形成百度健康的平台定位、业务边界、变现路径和战略建议",
+                "Value": "帮助判断百度健康如何借助 AI 搜索、知识图谱和患者服务编排形成差异化竞争",
+            },
+            "details": [
+                "**研究边界界定：** 将百度健康定位为中国数字健康行业中的“平台层”机会，重点分析其在流量入口、医疗信息组织、患者服务和医院/医生连接中的角色。",
+                "**行业与政策分析：** 梳理中国数字健康、互联网医疗、AI 医疗卫生和分级诊疗政策，判断百度健康更适合切入智能预问诊、分诊导诊、慢病管理和院后随访等流程型场景。",
+                "**商业模式拆解：** 区分百度健康与京东健康的能力曲线，指出百度优势在搜索流量、AI 能力、知识图谱和开放平台生态，而非药品供应链和交易履约。",
+                "**竞争对标分析：** 对比百度健康与京东健康、阿里健康及国际互联网健康业务案例，判断哪些模式可以迁移到中国市场，哪些模式存在监管与履约边界。",
+                "**信息边界说明：** 百度未单独披露百度健康收入、利润、MAU、付费转化和 GMV，因此不将其单独财务规模伪造成已验证事实。",
+                "**战略建议输出：** 提出百度健康应围绕 AI 搜索入口、可信健康内容、医生/医院数字化工具、患者服务编排和 B2B2C 平台模式构建轻资产健康业务。",
+            ],
+            "tools": ["行业研究", "商业模式分析", "竞争对标", "财务分析", "战略框架", "政策分析"],
+            "deliverables": ["行业研究报告", "战略分析框架", "竞争对标结论", "平台定位建议"],
+            "target_roles": ["行业研究", "咨询", "战略分析", "互联网医疗", "AI 产品助理", "商业分析"],
+            "downloads": [{"label": "下载研究报告", "path": DOWNLOAD_FILES["baidu_health"]}],
+            "github_url": "",
+            "demo_url": "",
+            "image_file": "",
+        },
+        {
+            "id": "fiberhome_internal_control",
+            "name": "长飞光纤内部控制分析",
+            "category": "Audit & Accounting",
+            "tags": ["内部控制", "财务分析", "审计", "PPT"],
+            "summary": "围绕长飞光纤的内部控制体系、业务流程和财务风险展开分析，形成内部控制分析报告和展示材料。",
+            "logic": {
+                "Problem": "制造业企业业务流程复杂，内部控制有效性会影响财务质量与经营风险",
+                "Method": "结合内部控制框架、财务指标和业务流程进行风险识别",
+                "Output": "形成内部控制分析 PDF 与 PPTX 展示材料",
+                "Value": "展示会计审计基础、流程分析和风险识别能力",
+            },
+            "details": [
+                "**控制环境梳理：** 从公司治理、组织结构和业务流程角度理解内部控制基础。",
+                "**风险点识别：** 结合采购、生产、销售、资金和存货等环节识别潜在控制风险。",
+                "**财务指标辅助判断：** 使用财务数据观察经营效率、偿债压力和现金流质量。",
+                "**报告表达：** 将分析过程整理为 PDF 与 PPTX，便于审计 / 会计岗位展示。",
+            ],
+            "tools": ["Internal Control", "Financial Analysis", "Excel", "PPT"],
+            "deliverables": ["内部控制分析 PDF", "内部控制分析 PPTX"],
+            "target_roles": ["审计", "会计", "内控", "风险管理"],
+            "downloads": [
+                {"label": "下载 PDF", "path": DOWNLOAD_FILES["longi_internal_control_pdf"]},
+                {"label": "下载 PPTX", "path": DOWNLOAD_FILES["longi_internal_control_pptx"]},
+            ],
+            "github_url": "",
+            "demo_url": "",
+            "image_file": "",
+        },
+        {
+            "id": "trr_shipping_forecast",
+            "name": "干散货运价预测与可解释性分析",
+            "category": "Business Research & Consulting",
+            "tags": ["航运市场", "预测模型", "可解释性分析", "研究论文"],
+            "summary": "围绕干散货运价预测问题展开研究，结合市场变量、预测模型和可解释性分析形成论文成果。",
+            "logic": {
+                "Problem": "干散货运价受供需、宏观、能源和航线因素影响，波动较大且解释难度高",
+                "Method": "整理运输市场变量并构建预测与解释框架",
+                "Output": "形成 TRR 论文文本和模型解释结论",
+                "Value": "展示数据研究、行业理解和可解释分析能力",
+            },
+            "details": [
+                "**研究问题拆解：** 将运价波动拆分为需求、供给、能源价格和市场预期等影响维度。",
+                "**数据整理：** 对航运市场和宏观变量进行清洗、匹配和建模准备。",
+                "**预测框架构建：** 使用模型输出结果分析运价变化，并关注预测结果的可解释性。",
+                "**论文表达：** 将方法、结果和行业含义整理为研究论文，便于展示数据研究能力。",
+            ],
+            "tools": ["Data Cleaning", "Forecasting", "Research Writing", "Explainability"],
+            "deliverables": ["研究论文", "预测分析框架", "可解释性结论"],
+            "target_roles": ["行业研究", "数据分析", "商业分析"],
+            "downloads": [{"label": "下载论文 PDF", "path": DOWNLOAD_FILES["trr_paper"]}],
+            "github_url": "",
+            "demo_url": "",
+            "image_file": "",
+        },
+    ],
+}
+
+
+PROJECTS["English"] = PROJECTS["中文"]
 
 
 CSS = """
@@ -893,19 +1240,44 @@ def section_title(anchor: str, title: str, lead: str) -> None:
     )
 
 
-def render_download(path: str, content: dict[str, object], key: str) -> None:
+def get_mime_type(file_path: str) -> str:
+    ext = os.path.splitext(file_path)[1].lower()
+    if ext == ".pdf":
+        return "application/pdf"
+    if ext == ".pptx":
+        return "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+    if ext == ".docx":
+        return "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    if ext == ".do":
+        return "text/plain"
+    if ext == ".csv":
+        return "text/csv"
+    return "application/octet-stream"
+
+
+def render_download_button(label: str, path: str, key: str) -> None:
+    if not path:
+        return
     file_path = BASE_DIR / path
     if file_path.exists():
         with open(file_path, "rb") as file:
             st.download_button(
-                content["download_pdf"],
+                label,
                 data=file,
                 file_name=file_path.name,
-                mime="application/pdf",
+                mime=get_mime_type(str(file_path)),
                 key=key,
             )
     else:
-        st.button(content["pdf_missing"], disabled=True, key=key)
+        st.warning(f"文件未找到：{path}")
+
+
+def project_matches_category(project: dict[str, object], selected: str, all_label: str) -> bool:
+    if selected == all_label:
+        return True
+    if project.get("category") == selected:
+        return True
+    return selected in project.get("tags", [])
 
 
 def project_card(project: dict[str, object], content: dict[str, object], key_prefix: str) -> None:
@@ -922,11 +1294,22 @@ def project_card(project: dict[str, object], content: dict[str, object], key_pre
         card_html,
     )
 
-    button_count = 1 + int(bool(project["github_url"])) + int(bool(project["demo_url"]))
+    downloads = project.get("downloads", [])
+    show_downloads = bool(downloads)
+    show_github = bool(project.get("github_url"))
+    show_demo = bool(project.get("demo_url"))
+    button_count = max(1, int(show_downloads) + int(show_github) + int(show_demo))
     columns = st.columns(button_count)
-    with columns[0]:
-        render_download(project["download_file"], content, f"{key_prefix}-download")
-    column_index = 1
+    column_index = 0
+    if show_downloads:
+        with columns[column_index]:
+            for item_index, item in enumerate(downloads):
+                render_download_button(
+                    str(item["label"]),
+                    str(item["path"]),
+                    f"{key_prefix}-download-{item_index}",
+                )
+        column_index += 1
     if project["github_url"]:
         with columns[column_index]:
             st.link_button(content["view_github"], project["github_url"])
@@ -936,7 +1319,9 @@ def project_card(project: dict[str, object], content: dict[str, object], key_pre
             st.link_button(content["view_demo"], project["demo_url"])
 
     with st.expander(content["details"]):
-        st.markdown(f"**{content['my_role']}**  \n{project['role']}")
+        st.markdown(f"**{content['my_role']}**")
+        for item in project.get("details", []):
+            st.markdown(f"- {item}")
         st.markdown(f"**{content['deliverables']}**  \n{', '.join(project['deliverables'])}")
         st.markdown(f"**{content['target_roles']}**  \n{', '.join(project['target_roles'])}")
 
@@ -985,14 +1370,14 @@ def featured_projects(projects: list[dict[str, object]], content: dict[str, obje
 
 def projects_section(projects: list[dict[str, object]], content: dict[str, object]) -> None:
     section_title("projects", content["projects_title"], content["projects_lead"])
-    categories = [content["all"]] + sorted({project["category"] for project in projects})
+    categories = CATEGORIES["中文" if content["all"] == "全部" else "English"]
     selected = st.radio(
         content["category_label"],
         categories,
         horizontal=True,
         label_visibility="collapsed",
     )
-    visible = projects if selected == content["all"] else [project for project in projects if project["category"] == selected]
+    visible = [project for project in projects if project_matches_category(project, selected, content["all"])]
     for index, project in enumerate(visible):
         project_card(project, content, f"project-{selected}-{index}")
 

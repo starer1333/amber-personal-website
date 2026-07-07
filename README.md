@@ -54,6 +54,25 @@ assets/projects/
 
 如果 PDF 还没有放进去，网站会先显示“PDF 待补充 / PDF pending”。
 
+当前项目文件名已经在代码中统一映射。请尽量使用下面这些真实文件名：
+
+```text
+AI 财务BP 2028.pdf
+会计师事务所审计供给能力对IPO企业应计盈余管理的影响研究.pdf
+会计师事务所审计供给能力对IPO企业应计盈余管理的影响研究.do
+长飞光纤 内部控制分析.pdf
+长飞光纤 内部控制分析.pptx
+好利来营销策划案.pdf
+AGI引入对公司治理效果的影响研究.pdf
+论文答辩 .pdf
+TRR论文.pdf
+陕西文旅公司分析.pptx
+大众汽车集团行业研究_中文修订版.pptx
+百度健康行业研究框架与战略分析.pdf
+```
+
+注意：`论文答辩 .pdf` 里面“答辩”和“.pdf”之间有一个空格。
+
 ## 如何上传 PDF 到网站
 
 最简单的方法是直接在 GitHub 网页上传：
@@ -70,17 +89,21 @@ resume_latest.pdf
 5. 页面底部选择 `Commit changes`
 6. 等 Streamlit Cloud 自动重新部署，通常几十秒到几分钟
 
-项目 PDF 上传到 `assets/projects/` 文件夹，并使用下面这些文件名。文件名要完全一致，否则网页会继续显示“PDF 待补充”。
+项目 PDF / PPTX / DO 文件上传到 `assets/projects/` 文件夹，并使用下面这些文件名。文件名要完全一致，否则网页会显示“文件未找到”。
 
 ```text
-audit_confirmation_summary.pdf
-ipo_earnings_management.pdf
-volkswagen_research.pdf
-shaanxi_tourism_ipo.pdf
-holiland_marketing.pdf
-ai_finance_website.pdf
-agi_governance_research.pdf
-city_pizza_miniprogram.pdf
+AI 财务BP 2028.pdf
+会计师事务所审计供给能力对IPO企业应计盈余管理的影响研究.pdf
+会计师事务所审计供给能力对IPO企业应计盈余管理的影响研究.do
+长飞光纤 内部控制分析.pdf
+长飞光纤 内部控制分析.pptx
+好利来营销策划案.pdf
+AGI引入对公司治理效果的影响研究.pdf
+论文答辩 .pdf
+TRR论文.pdf
+陕西文旅公司分析.pptx
+大众汽车集团行业研究_中文修订版.pptx
+百度健康行业研究框架与战略分析.pdf
 ```
 
 如果你是在电脑本地操作，也可以把 PDF 复制到对应文件夹后运行：
@@ -149,6 +172,25 @@ assets/projects/
 
 If PDFs are not added yet, the website will show “PDF 待补充 / PDF pending”.
 
+The current project files are mapped with these exact filenames:
+
+```text
+AI 财务BP 2028.pdf
+会计师事务所审计供给能力对IPO企业应计盈余管理的影响研究.pdf
+会计师事务所审计供给能力对IPO企业应计盈余管理的影响研究.do
+长飞光纤 内部控制分析.pdf
+长飞光纤 内部控制分析.pptx
+好利来营销策划案.pdf
+AGI引入对公司治理效果的影响研究.pdf
+论文答辩 .pdf
+TRR论文.pdf
+陕西文旅公司分析.pptx
+大众汽车集团行业研究_中文修订版.pptx
+百度健康行业研究框架与战略分析.pdf
+```
+
+Note: `论文答辩 .pdf` includes a space before `.pdf`.
+
 ## How to Upload PDFs
 
 The easiest method is to upload files directly on GitHub:
@@ -165,17 +207,21 @@ resume_latest.pdf
 5. Click `Commit changes`
 6. Wait for Streamlit Cloud to redeploy automatically
 
-Project PDFs should be uploaded to `assets/projects/` with these exact filenames:
+Project PDF / PPTX / DO files should be uploaded to `assets/projects/` with these exact filenames:
 
 ```text
-audit_confirmation_summary.pdf
-ipo_earnings_management.pdf
-volkswagen_research.pdf
-shaanxi_tourism_ipo.pdf
-holiland_marketing.pdf
-ai_finance_website.pdf
-agi_governance_research.pdf
-city_pizza_miniprogram.pdf
+AI 财务BP 2028.pdf
+会计师事务所审计供给能力对IPO企业应计盈余管理的影响研究.pdf
+会计师事务所审计供给能力对IPO企业应计盈余管理的影响研究.do
+长飞光纤 内部控制分析.pdf
+长飞光纤 内部控制分析.pptx
+好利来营销策划案.pdf
+AGI引入对公司治理效果的影响研究.pdf
+论文答辩 .pdf
+TRR论文.pdf
+陕西文旅公司分析.pptx
+大众汽车集团行业研究_中文修订版.pptx
+百度健康行业研究框架与战略分析.pdf
 ```
 
 If you work locally, copy the PDFs into the folders and run:
