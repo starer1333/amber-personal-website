@@ -1,3 +1,4 @@
+from html import escape
 from pathlib import Path
 
 import streamlit as st
@@ -476,13 +477,18 @@ CSS = """
   --text-secondary: #6E6E73;
   --text-muted: #86868B;
   --accent-blue: #0071E3;
+  --accent-teal: #0A7C78;
+  --accent-gold: #B8860B;
+  --accent-rose: #A23E48;
+  --accent-ink: #243447;
   --border-light: #E5E5EA;
-  --shadow-soft: 0 12px 32px rgba(0, 0, 0, 0.06);
-  --shadow-hover: 0 18px 45px rgba(0, 0, 0, 0.10);
+  --shadow-soft: 0 14px 34px rgba(36, 52, 71, 0.07);
+  --shadow-hover: 0 20px 52px rgba(36, 52, 71, 0.12);
 }
 
 html, body, [data-testid="stAppViewContainer"] {
-  background: var(--bg-main);
+  background:
+    linear-gradient(180deg, #F7F8FB 0%, #F5F5F7 42%, #F1F4F3 100%);
   color: var(--text-main);
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif;
 }
@@ -589,6 +595,10 @@ h1, h2, h3, p {
 
 .hero-card {
   padding: 30px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(248, 251, 250, 0.96)),
+    linear-gradient(90deg, rgba(0, 113, 227, 0.08), rgba(184, 134, 11, 0.10));
+  border-color: rgba(10, 124, 120, 0.16);
 }
 
 .metric {
@@ -673,8 +683,20 @@ h1, h2, h3, p {
 }
 
 .project-card {
+  position: relative;
+  overflow: hidden;
   margin-bottom: 12px;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-teal), var(--accent-gold));
 }
 
 .project-card:hover {
@@ -695,6 +717,8 @@ h1, h2, h3, p {
 
 .tag {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 7px 11px;
   border-radius: 999px;
   background: var(--bg-soft);
@@ -702,6 +726,8 @@ h1, h2, h3, p {
   color: var(--text-secondary);
   font-size: 13px;
   font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .tag-blue {
@@ -712,17 +738,18 @@ h1, h2, h3, p {
 
 .logic {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  gap: 12px;
   margin: 22px 0;
 }
 
 .logic-step {
-  background: var(--bg-soft);
+  overflow: hidden;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAFBFC 100%);
   border: 1px solid var(--border-light);
   border-radius: 18px;
   padding: 16px;
-  min-height: 120px;
+  min-height: 132px;
 }
 
 .logic-step-title {
@@ -736,6 +763,9 @@ h1, h2, h3, p {
   color: var(--text-main);
   font-size: 14px;
   line-height: 1.45;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  white-space: normal;
 }
 
 .muted {
@@ -797,21 +827,28 @@ def inject_css() -> None:
     st.markdown(CSS, unsafe_allow_html=True)
 
 
+def html_block(markup: str) -> None:
+    if hasattr(st, "html"):
+        st.html(markup)
+    else:
+        st.markdown(markup, unsafe_allow_html=True)
+
+
 def get_language() -> str:
-    st.markdown('<div class="language-bar"><div class="language-card">', unsafe_allow_html=True)
+    html_block('<div class="language-bar"><div class="language-card">')
     lang = st.radio(
         I18N["中文"]["lang_label"],
         ["中文", "English"],
         horizontal=True,
         label_visibility="collapsed",
     )
-    st.markdown("</div></div>", unsafe_allow_html=True)
+    html_block("</div></div>")
     return lang
 
 
 def nav(content: dict[str, object]) -> None:
     labels = content["nav"]
-    st.markdown(
+    html_block(
         f"""
         <div class="nav">
           <div class="nav-inner">
@@ -827,7 +864,6 @@ def nav(content: dict[str, object]) -> None:
           </div>
         </div>
         """,
-        unsafe_allow_html=True,
     )
 
 
@@ -835,7 +871,7 @@ def tags(items: list[str], blue_first: bool = False) -> str:
     html = ['<div class="tag-row">']
     for index, item in enumerate(items):
         cls = "tag tag-blue" if blue_first and index == 0 else "tag"
-        html.append(f'<span class="{cls}">{item}</span>')
+        html.append(f'<span class="{cls}">{escape(str(item))}</span>')
     html.append("</div>")
     return "".join(html)
 
@@ -843,27 +879,17 @@ def tags(items: list[str], blue_first: bool = False) -> str:
 def logic_map(logic: dict[str, str]) -> str:
     html = ['<div class="logic">']
     for title, body in logic.items():
-        html.append(
-            f"""
-            <div class="logic-step">
-              <div class="logic-step-title">{title}</div>
-              <div class="logic-step-content">{body}</div>
-            </div>
-            """
-        )
+        html.append('<div class="logic-step">')
+        html.append(f'<div class="logic-step-title">{escape(str(title))}</div>')
+        html.append(f'<div class="logic-step-content">{escape(str(body))}</div>')
+        html.append("</div>")
     html.append("</div>")
     return "".join(html)
 
 
 def section_title(anchor: str, title: str, lead: str) -> None:
-    st.markdown(
-        f"""
-        <div class="section" id="{anchor}">
-          <h2>{title}</h2>
-          <p class="section-lead">{lead}</p>
-        </div>
-        """,
-        unsafe_allow_html=True,
+    html_block(
+        f'<div class="section" id="{escape(anchor)}"><h2>{escape(str(title))}</h2><p class="section-lead">{escape(str(lead))}</p></div>',
     )
 
 
@@ -883,17 +909,17 @@ def render_download(path: str, content: dict[str, object], key: str) -> None:
 
 
 def project_card(project: dict[str, object], content: dict[str, object], key_prefix: str) -> None:
-    st.markdown(
-        f"""
-        <div class="project-card">
-          {tags([project["category"]], blue_first=True)}
-          <h3>{project["name"]}</h3>
-          <p class="muted">{project["summary"]}</p>
-          {logic_map(project["logic"])}
-          {tags(project["tools"])}
-        </div>
-        """,
-        unsafe_allow_html=True,
+    card_html = (
+        '<div class="project-card">'
+        f'{tags([project["category"]], blue_first=True)}'
+        f'<h3>{escape(str(project["name"]))}</h3>'
+        f'<p class="muted">{escape(str(project["summary"]))}</p>'
+        f'{logic_map(project["logic"])}'
+        f'{tags(project["tools"])}'
+        '</div>'
+    )
+    html_block(
+        card_html,
     )
 
     button_count = 1 + int(bool(project["github_url"])) + int(bool(project["demo_url"]))
@@ -917,17 +943,17 @@ def project_card(project: dict[str, object], content: dict[str, object], key_pre
 
 def home(content: dict[str, object]) -> None:
     metric_html = "".join(
-        f'<div class="metric"><strong>{number}</strong><span>{caption}</span></div>'
+        f'<div class="metric"><strong>{escape(str(number))}</strong><span>{escape(str(caption))}</span></div>'
         for number, caption in content["metrics"]
     )
     chip_html = tags(content["chips"])
-    st.markdown(
+    html_block(
         f"""
         <div class="hero" id="home">
           <div>
-            <div class="eyebrow">{content["hero_eyebrow"]}</div>
-            <h1>{content["hero_title"]}</h1>
-            <p class="hero-subtitle">{content["hero_subtitle"]}</p>
+            <div class="eyebrow">{escape(str(content["hero_eyebrow"]))}</div>
+            <h1>{escape(str(content["hero_title"]))}</h1>
+            <p class="hero-subtitle">{escape(str(content["hero_subtitle"]))}</p>
             <div class="button-row">
               <a class="btn btn-primary" href="#projects">{content["view_projects"]}</a>
               <a class="btn btn-secondary" href="#resume">{content["download_resume"]}</a>
@@ -938,7 +964,6 @@ def home(content: dict[str, object]) -> None:
           <div class="hero-card">{metric_html}</div>
         </div>
         """,
-        unsafe_allow_html=True,
     )
 
 
@@ -947,15 +972,9 @@ def about(content: dict[str, object]) -> None:
     cards = []
     for title, body, tools in content["pillars"]:
         cards.append(
-            f"""
-            <div class="card">
-              <h3>{title}</h3>
-              <p class="muted">{body}</p>
-              {tags(tools)}
-            </div>
-            """
+            f'<div class="card"><h3>{escape(str(title))}</h3><p class="muted">{escape(str(body))}</p>{tags(tools)}</div>'
         )
-    st.markdown(f'<div class="grid-3">{"".join(cards)}</div>', unsafe_allow_html=True)
+    html_block(f'<div class="grid-3">{"".join(cards)}</div>')
 
 
 def featured_projects(projects: list[dict[str, object]], content: dict[str, object]) -> None:
@@ -983,14 +1002,13 @@ def ai_lab(content: dict[str, object]) -> None:
     columns = st.columns(2)
     for index, (title, body) in enumerate(content["ai_modules"]):
         with columns[index % 2]:
-            st.markdown(
+            html_block(
                 f"""
                 <div class="card">
                   <h3>{title}</h3>
                   <p class="muted">{body}</p>
                 </div>
                 """,
-                unsafe_allow_html=True,
             )
 
 
@@ -1011,12 +1029,12 @@ def resume(content: dict[str, object]) -> None:
     cards = []
     for title, body in content["resume_cards"]:
         cards.append(f'<div class="card"><h3>{title}</h3><p class="muted">{body}</p></div>')
-    st.markdown(f'<div class="grid-3">{"".join(cards)}</div>', unsafe_allow_html=True)
+    html_block(f'<div class="grid-3">{"".join(cards)}</div>')
 
 
 def contact(content: dict[str, object]) -> None:
     section_title("contact", content["contact_title"], content["contact_lead"])
-    st.markdown(
+    html_block(
         f"""
         <div class="card">
           <div class="button-row">
@@ -1028,7 +1046,6 @@ def contact(content: dict[str, object]) -> None:
           <p class="muted small">{content["footer"]}</p>
         </div>
         """,
-        unsafe_allow_html=True,
     )
 
 

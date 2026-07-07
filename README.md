@@ -54,6 +54,43 @@ assets/projects/
 
 如果 PDF 还没有放进去，网站会先显示“PDF 待补充 / PDF pending”。
 
+## 如何上传 PDF 到网站
+
+最简单的方法是直接在 GitHub 网页上传：
+
+1. 打开仓库：`https://github.com/starer1333/amber-personal-website`
+2. 上传简历：进入 `assets/resume/` 文件夹
+3. 点击右上角 `Add file` -> `Upload files`
+4. 把最新版简历拖进去，并改名为：
+
+```text
+resume_latest.pdf
+```
+
+5. 页面底部选择 `Commit changes`
+6. 等 Streamlit Cloud 自动重新部署，通常几十秒到几分钟
+
+项目 PDF 上传到 `assets/projects/` 文件夹，并使用下面这些文件名。文件名要完全一致，否则网页会继续显示“PDF 待补充”。
+
+```text
+audit_confirmation_summary.pdf
+ipo_earnings_management.pdf
+volkswagen_research.pdf
+shaanxi_tourism_ipo.pdf
+holiland_marketing.pdf
+ai_finance_website.pdf
+agi_governance_research.pdf
+city_pizza_miniprogram.pdf
+```
+
+如果你是在电脑本地操作，也可以把 PDF 复制到对应文件夹后运行：
+
+```bash
+git add assets/resume/resume_latest.pdf assets/projects/
+git commit -m "Add portfolio PDF assets"
+git push
+```
+
 ---
 
 # Amber Wang Portfolio Website
@@ -111,3 +148,40 @@ assets/projects/
 ```
 
 If PDFs are not added yet, the website will show “PDF 待补充 / PDF pending”.
+
+## How to Upload PDFs
+
+The easiest method is to upload files directly on GitHub:
+
+1. Open `https://github.com/starer1333/amber-personal-website`
+2. For the resume, go to `assets/resume/`
+3. Click `Add file` -> `Upload files`
+4. Upload the latest resume and rename it to:
+
+```text
+resume_latest.pdf
+```
+
+5. Click `Commit changes`
+6. Wait for Streamlit Cloud to redeploy automatically
+
+Project PDFs should be uploaded to `assets/projects/` with these exact filenames:
+
+```text
+audit_confirmation_summary.pdf
+ipo_earnings_management.pdf
+volkswagen_research.pdf
+shaanxi_tourism_ipo.pdf
+holiland_marketing.pdf
+ai_finance_website.pdf
+agi_governance_research.pdf
+city_pizza_miniprogram.pdf
+```
+
+If you work locally, copy the PDFs into the folders and run:
+
+```bash
+git add assets/resume/resume_latest.pdf assets/projects/
+git commit -m "Add portfolio PDF assets"
+git push
+```
