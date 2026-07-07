@@ -479,7 +479,7 @@ DOWNLOAD_FILES = {
     "agi_defense_pdf": "assets/projects/论文答辩 .pdf",
     "trr_paper": "assets/projects/TRR论文.pdf",
     "shaanxi_tourism": "assets/projects/陕西文旅公司分析.pptx",
-    "volkswagen": "assets/projects/大众汽车集团行业研究_中文修订版.pptx",
+    "volkswagen": "assets/projects/大众汽车集团行业研究.pptx",
     "baidu_health": "assets/projects/百度健康行业研究框架与战略分析.pdf",
 }
 
@@ -662,7 +662,7 @@ PROJECTS = {
             "tools": ["Python", "Streamlit", "Pandas", "Plotly", "PyPDF2", "openpyxl", "DeepSeek API", "RAG", "Multi-Agent"],
             "deliverables": ["在线 Demo", "GitHub 仓库", "财务摘要", "风险审阅结果", "分析底稿导出"],
             "target_roles": ["AI 财务", "审计数据分析", "财务分析", "商业分析", "AI 产品助理"],
-            "downloads": [{"label": "下载项目说明", "path": DOWNLOAD_FILES["ai_finance_bp"]}],
+            "downloads": [],
             "github_url": PROJECT_LINKS["financedoc_ai_github"],
             "demo_url": PROJECT_LINKS["financedoc_ai_demo"],
             "image_file": "",

@@ -16,8 +16,17 @@
 - Home、About、Projects、AI Lab、Resume、Contact 页面结构
 - 项目分类筛选
 - 每个项目都有四步逻辑图：Problem -> Method -> Output -> Value
-- 支持简历 PDF 和项目 PDF 下载
-- 支持 GitHub / Demo 外部链接
+- 支持项目文件下载、GitHub 跳转和 Demo 跳转
+- 项目展开页使用简历式 bullet 展示具体工作
+
+## 项目内容
+
+网站目前覆盖以下方向：
+
+- Audit & Accounting：审计函证、IPO 盈余管理、内部控制分析
+- Business Research & Consulting：大众汽车、陕西文旅、好利来、百度健康、TRR 论文
+- AI x Finance：FinanceDoc AI、AGI 公司治理研究
+- Product & Coding：City Pizza 微信点餐小程序
 
 ## 本地运行
 
@@ -26,92 +35,12 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-## Streamlit Cloud 部署设置
-
-如果网站打不开，请在 Streamlit Cloud 检查这三项：
+## Streamlit Cloud 部署
 
 ```text
 Repository: starer1333/amber-personal-website
 Branch: main
 Main file path: app.py
-```
-
-如果页面显示构建失败，请先在 Streamlit Cloud 里点击 reboot / redeploy。代码已包含 `requirements.txt`，云端会自动安装 Streamlit。
-
-## 资源文件路径
-
-最新版简历放这里：
-
-```text
-assets/resume/resume_latest.pdf
-```
-
-项目 PDF 放这里：
-
-```text
-assets/projects/
-```
-
-如果 PDF 还没有放进去，网站会先显示“PDF 待补充 / PDF pending”。
-
-当前项目文件名已经在代码中统一映射。请尽量使用下面这些真实文件名：
-
-```text
-AI 财务BP 2028.pdf
-会计师事务所审计供给能力对IPO企业应计盈余管理的影响研究.pdf
-会计师事务所审计供给能力对IPO企业应计盈余管理的影响研究.do
-长飞光纤 内部控制分析.pdf
-长飞光纤 内部控制分析.pptx
-好利来营销策划案.pdf
-AGI引入对公司治理效果的影响研究.pdf
-论文答辩 .pdf
-TRR论文.pdf
-陕西文旅公司分析.pptx
-大众汽车集团行业研究_中文修订版.pptx
-百度健康行业研究框架与战略分析.pdf
-```
-
-注意：`论文答辩 .pdf` 里面“答辩”和“.pdf”之间有一个空格。
-
-## 如何上传 PDF 到网站
-
-最简单的方法是直接在 GitHub 网页上传：
-
-1. 打开仓库：`https://github.com/starer1333/amber-personal-website`
-2. 上传简历：进入 `assets/resume/` 文件夹
-3. 点击右上角 `Add file` -> `Upload files`
-4. 把最新版简历拖进去，并改名为：
-
-```text
-resume_latest.pdf
-```
-
-5. 页面底部选择 `Commit changes`
-6. 等 Streamlit Cloud 自动重新部署，通常几十秒到几分钟
-
-项目 PDF / PPTX / DO 文件上传到 `assets/projects/` 文件夹，并使用下面这些文件名。文件名要完全一致，否则网页会显示“文件未找到”。
-
-```text
-AI 财务BP 2028.pdf
-会计师事务所审计供给能力对IPO企业应计盈余管理的影响研究.pdf
-会计师事务所审计供给能力对IPO企业应计盈余管理的影响研究.do
-长飞光纤 内部控制分析.pdf
-长飞光纤 内部控制分析.pptx
-好利来营销策划案.pdf
-AGI引入对公司治理效果的影响研究.pdf
-论文答辩 .pdf
-TRR论文.pdf
-陕西文旅公司分析.pptx
-大众汽车集团行业研究_中文修订版.pptx
-百度健康行业研究框架与战略分析.pdf
-```
-
-如果你是在电脑本地操作，也可以把 PDF 复制到对应文件夹后运行：
-
-```bash
-git add assets/resume/resume_latest.pdf assets/projects/
-git commit -m "Add portfolio PDF assets"
-git push
 ```
 
 ---
@@ -134,8 +63,17 @@ The core career story is:
 - Home, About, Projects, AI Lab, Resume and Contact sections
 - Filterable project gallery
 - Four-step logic map for every project: Problem -> Method -> Output -> Value
-- Resume and project PDF download support
-- GitHub / Demo external links
+- Project downloads, GitHub links and demo links
+- Resume-style project detail bullets
+
+## Project Coverage
+
+The portfolio currently covers:
+
+- Audit & Accounting: audit confirmation, IPO earnings management and internal control analysis
+- Business Research & Consulting: Volkswagen, Shaanxi Tourism, Holiland, Baidu Health and TRR research
+- AI x Finance: FinanceDoc AI and AGI corporate governance research
+- Product & Coding: City Pizza WeChat ordering mini program
 
 ## Run Locally
 
@@ -146,88 +84,8 @@ streamlit run app.py
 
 ## Streamlit Cloud Deployment
 
-If the website does not open, check these settings in Streamlit Cloud:
-
 ```text
 Repository: starer1333/amber-personal-website
 Branch: main
 Main file path: app.py
-```
-
-If the page shows a build failure, click reboot / redeploy in Streamlit Cloud. The repo includes `requirements.txt`, so Streamlit Cloud will install Streamlit automatically.
-
-## Asset Paths
-
-Put the latest resume here:
-
-```text
-assets/resume/resume_latest.pdf
-```
-
-Put project PDFs here:
-
-```text
-assets/projects/
-```
-
-If PDFs are not added yet, the website will show “PDF 待补充 / PDF pending”.
-
-The current project files are mapped with these exact filenames:
-
-```text
-AI 财务BP 2028.pdf
-会计师事务所审计供给能力对IPO企业应计盈余管理的影响研究.pdf
-会计师事务所审计供给能力对IPO企业应计盈余管理的影响研究.do
-长飞光纤 内部控制分析.pdf
-长飞光纤 内部控制分析.pptx
-好利来营销策划案.pdf
-AGI引入对公司治理效果的影响研究.pdf
-论文答辩 .pdf
-TRR论文.pdf
-陕西文旅公司分析.pptx
-大众汽车集团行业研究_中文修订版.pptx
-百度健康行业研究框架与战略分析.pdf
-```
-
-Note: `论文答辩 .pdf` includes a space before `.pdf`.
-
-## How to Upload PDFs
-
-The easiest method is to upload files directly on GitHub:
-
-1. Open `https://github.com/starer1333/amber-personal-website`
-2. For the resume, go to `assets/resume/`
-3. Click `Add file` -> `Upload files`
-4. Upload the latest resume and rename it to:
-
-```text
-resume_latest.pdf
-```
-
-5. Click `Commit changes`
-6. Wait for Streamlit Cloud to redeploy automatically
-
-Project PDF / PPTX / DO files should be uploaded to `assets/projects/` with these exact filenames:
-
-```text
-AI 财务BP 2028.pdf
-会计师事务所审计供给能力对IPO企业应计盈余管理的影响研究.pdf
-会计师事务所审计供给能力对IPO企业应计盈余管理的影响研究.do
-长飞光纤 内部控制分析.pdf
-长飞光纤 内部控制分析.pptx
-好利来营销策划案.pdf
-AGI引入对公司治理效果的影响研究.pdf
-论文答辩 .pdf
-TRR论文.pdf
-陕西文旅公司分析.pptx
-大众汽车集团行业研究_中文修订版.pptx
-百度健康行业研究框架与战略分析.pdf
-```
-
-If you work locally, copy the PDFs into the folders and run:
-
-```bash
-git add assets/resume/resume_latest.pdf assets/projects/
-git commit -m "Add portfolio PDF assets"
-git push
 ```
