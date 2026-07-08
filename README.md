@@ -28,6 +28,18 @@
 - AI x Finance：FinanceDoc AI、AGI 公司治理研究
 - Product & Coding：City Pizza 微信点餐小程序
 
+## 当前资源命名
+
+网站代码当前使用的简历文件名为：
+
+```text
+assets/resume/王渤函-会计.pdf
+assets/resume/王渤函-行研.pdf
+assets/resume/王渤函-HR.pdf
+```
+
+每份简历 PDF 均为中文在前、英文在后。
+
 ## 本地运行
 
 ```bash
@@ -74,6 +86,18 @@ The portfolio currently covers:
 - Business Research & Consulting: Volkswagen, Shaanxi Tourism, Holiland and Baidu Health
 - AI x Finance: FinanceDoc AI and AGI corporate governance research
 - Product & Coding: City Pizza WeChat ordering mini program
+
+## Active Resume Assets
+
+The app currently uses these resume filenames:
+
+```text
+assets/resume/王渤函-会计.pdf
+assets/resume/王渤函-行研.pdf
+assets/resume/王渤函-HR.pdf
+```
+
+Each PDF includes Chinese first and English second.
 
 ## Run Locally
 

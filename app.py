@@ -1412,7 +1412,7 @@ def contact(content: dict[str, object]) -> None:
           <div class="button-row">
             <a class="btn btn-primary" href="mailto:wangbh2923@mails.jlu.edu.cn">Email</a>
             <a class="btn btn-secondary" href="https://github.com/starer1333" target="_blank">GitHub</a>
-            <a class="btn btn-secondary" href="https://auditflow13.streamlit.app/" target="_blank">Streamlit Demo</a>
+            <a class="btn btn-secondary" href="https://financedoc-ai.streamlit.app/" target="_blank">FinanceDoc Demo</a>
           </div>
           <div class="divider"></div>
           <p class="muted small">{content["footer"]}</p>
