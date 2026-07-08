@@ -81,13 +81,12 @@ I18N = {
             ("City Pizza Mini Program", "从点餐流程到商家后台，展示产品结构和 AI 辅助开发能力"),
         ],
         "resume_title": "简历",
-        "resume_lead": "你可以在这里下载我的最新版简历。",
-        "resume_button": "下载最新版简历",
-        "resume_missing": "请将最新版简历放到 assets/resume/resume_latest.pdf，页面会自动显示下载按钮。",
+        "resume_lead": "你可以按投递方向下载对应版本简历。每份 PDF 都包含中文与英文版本，顺序为中文在前、英文在后。",
+        "resume_missing": "简历文件暂未上传。",
         "resume_cards": [
-            ("Audit / Accounting", "Audit workflow · Excel automation · Financial data"),
-            ("Business Research", "Industry research · Strategy deck · Financial analysis"),
-            ("AI x Finance", "LLM workflow · Streamlit · Structured output"),
+            ("审计 / 会计方向", "Audit workflow · Excel automation · Financial data", "王渤函-会计.pdf", "下载会计简历"),
+            ("行业研究 / 咨询方向", "Industry research · Strategy deck · Financial analysis", "王渤函-行研.pdf", "下载行研简历"),
+            ("HR / People Operations", "People operations · HR analytics · Business communication", "王渤函-HR.pdf", "下载 HR 简历"),
         ],
         "contact_title": "欢迎联系我。",
         "contact_lead": "我正在寻找审计 / 会计、行业研究 / 咨询、AI x 财务 / AI x 业务分析相关实习机会。",
@@ -157,13 +156,12 @@ I18N = {
             ("City Pizza Mini Program", "Showing product structure and AI-assisted development from ordering flow to merchant backend"),
         ],
         "resume_title": "Resume",
-        "resume_lead": "Download my latest resume here.",
-        "resume_button": "Download Latest Resume",
-        "resume_missing": "Place the latest resume at assets/resume/resume_latest.pdf and the download button will appear automatically.",
+        "resume_lead": "Download the resume version that best matches the role. Each PDF includes both Chinese and English versions, with Chinese first and English second.",
+        "resume_missing": "Resume file pending.",
         "resume_cards": [
-            ("Audit / Accounting", "Audit workflow · Excel automation · Financial data"),
-            ("Business Research", "Industry research · Strategy deck · Financial analysis"),
-            ("AI x Finance", "LLM workflow · Streamlit · Structured output"),
+            ("Audit / Accounting", "Audit workflow · Excel automation · Financial data", "王渤函-会计.pdf", "Download Accounting Resume"),
+            ("Business Research / Consulting", "Industry research · Strategy deck · Financial analysis", "王渤函-行研.pdf", "Download Research Resume"),
+            ("HR / People Operations", "People operations · HR analytics · Business communication", "王渤函-HR.pdf", "Download HR Resume"),
         ],
         "contact_title": "Let's Connect.",
         "contact_lead": "I am looking for internship opportunities in audit, accounting, business research, consulting, AI x finance and AI-enabled business analysis.",
@@ -1262,6 +1260,21 @@ def render_download_button(label: str, path: str, key: str) -> None:
         st.warning(f"文件未找到：{path}")
 
 
+def render_resume_button(label: str, filename: str, key: str) -> None:
+    file_path = BASE_DIR / "assets" / "resume" / filename
+    if file_path.exists():
+        with open(file_path, "rb") as file:
+            st.download_button(
+                label,
+                data=file,
+                file_name=file_path.name,
+                mime="application/pdf",
+                key=key,
+            )
+    else:
+        st.button(label, disabled=True, key=key)
+
+
 def project_matches_category(project: dict[str, object], selected: str, all_label: str) -> bool:
     if selected == all_label:
         return True
@@ -1284,29 +1297,24 @@ def project_card(project: dict[str, object], content: dict[str, object], key_pre
         card_html,
     )
 
-    downloads = project.get("downloads", [])
-    show_downloads = bool(downloads)
-    show_github = bool(project.get("github_url"))
-    show_demo = bool(project.get("demo_url"))
-    button_count = max(1, int(show_downloads) + int(show_github) + int(show_demo))
-    columns = st.columns(button_count)
-    column_index = 0
-    if show_downloads:
-        with columns[column_index]:
-            for item_index, item in enumerate(downloads):
-                render_download_button(
-                    str(item["label"]),
-                    str(item["path"]),
-                    f"{key_prefix}-download-{item_index}",
-                )
-        column_index += 1
-    if project["github_url"]:
-        with columns[column_index]:
-            st.link_button(content["view_github"], project["github_url"])
-        column_index += 1
-    if project["demo_url"]:
-        with columns[column_index]:
-            st.link_button(content["view_demo"], project["demo_url"])
+    actions = []
+    for item_index, item in enumerate(project.get("downloads", [])):
+        actions.append(("download", item, f"{key_prefix}-download-{item_index}"))
+    if project.get("github_url"):
+        actions.append(("github", project["github_url"], f"{key_prefix}-github"))
+    if project.get("demo_url"):
+        actions.append(("demo", project["demo_url"], f"{key_prefix}-demo"))
+
+    if actions:
+        columns = st.columns(len(actions))
+        for action_index, (action_type, payload, action_key) in enumerate(actions):
+            with columns[action_index]:
+                if action_type == "download":
+                    render_download_button(str(payload["label"]), str(payload["path"]), action_key)
+                elif action_type == "github":
+                    st.link_button(content["view_github"], payload)
+                elif action_type == "demo":
+                    st.link_button(content["view_demo"], payload)
 
     with st.expander(content["details"]):
         st.markdown(f"**{content['my_role']}**")
@@ -1389,22 +1397,11 @@ def ai_lab(content: dict[str, object]) -> None:
 
 def resume(content: dict[str, object]) -> None:
     section_title("resume", content["resume_title"], content["resume_lead"])
-    resume_path = BASE_DIR / "assets/resume/resume_latest.pdf"
-    if resume_path.exists():
-        with open(resume_path, "rb") as file:
-            st.download_button(
-                content["resume_button"],
-                data=file,
-                file_name="Amber_Wang_Resume.pdf",
-                mime="application/pdf",
-            )
-    else:
-        st.info(content["resume_missing"])
-
-    cards = []
-    for title, body in content["resume_cards"]:
-        cards.append(f'<div class="card"><h3>{title}</h3><p class="muted">{body}</p></div>')
-    html_block(f'<div class="grid-3">{"".join(cards)}</div>')
+    columns = st.columns(3)
+    for index, (title, body, filename, button_label) in enumerate(content["resume_cards"]):
+        with columns[index]:
+            html_block(f'<div class="card"><h3>{escape(str(title))}</h3><p class="muted">{escape(str(body))}</p></div>')
+            render_resume_button(str(button_label), str(filename), f"resume-{index}")
 
 
 def contact(content: dict[str, object]) -> None:
@@ -1413,7 +1410,7 @@ def contact(content: dict[str, object]) -> None:
         f"""
         <div class="card">
           <div class="button-row">
-            <a class="btn btn-primary" href="mailto:wangdacongming@icloud.com">Email</a>
+            <a class="btn btn-primary" href="mailto:wangbh2923@mails.jlu.edu.cn">Email</a>
             <a class="btn btn-secondary" href="https://github.com/starer1333" target="_blank">GitHub</a>
             <a class="btn btn-secondary" href="https://auditflow13.streamlit.app/" target="_blank">Streamlit Demo</a>
           </div>
