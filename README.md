@@ -1,44 +1,33 @@
-# Amber Wang 个人作品集网站
+# 王渤函个人作品集网站
 
-这是一个基于 Streamlit 搭建的个人求职作品集网站，用于展示 Amber Wang 的个人定位、项目作品、AI 工具探索、最新版简历和联系方式。
+这是一个基于 Streamlit 搭建的双语个人作品集网站，用于求职展示。网站围绕会计与审计、商业研究与咨询、AI x 财务、AI x Healthcare 和产品原型项目，呈现我的能力组合、项目证据、可下载作品、GitHub 仓库和在线 Demo。
 
-网站主线是：
+## 网站定位
 
-- 会计与审计基础
-- 商业分析与行业研究能力
-- AI x 财务 / AI x 业务工作流能力
-- 项目型表达与可展示成果
+这个作品集不是传统简历页，而是一个面向 HR、业务面试官和项目面试场景的职业型 Portfolio。它的核心叙事是：
 
-## 核心功能
+- 用会计与审计基础理解业务流程和财务数据
+- 用商业分析与咨询式表达拆解行业、公司和商业模式
+- 用 AI-assisted coding 和 Streamlit 把财务/业务流程转化为可展示工具
+- 用项目卡片、逻辑图和展开详情，让项目价值能被快速理解和验证
 
-- Apple-inspired 的浅色高级作品集 UI
-- 中文 / English 双语切换
-- Home、About、Projects、AI Lab、Resume、Contact 页面结构
-- 项目分类筛选
-- 每个项目都有四步逻辑图：Problem -> Method -> Output -> Value
-- 支持项目文件下载、GitHub 跳转和 Demo 跳转
-- 项目展开页使用简历式 bullet 展示具体工作
+## 内容结构
 
-## 项目内容
+网站包含以下模块：
 
-网站目前覆盖以下方向：
+- Home：个人定位、职业方向和项目概览
+- About：Accounting、Business Research、AI Workflow 三类能力支柱
+- Projects：项目筛选、四步逻辑图、下载按钮、GitHub / Demo 跳转
+- AI Lab：AI 财务工具、Prompt Engineering、Streamlit 和小程序原型展示
+- Resume：按求职方向下载简历
+- Contact：邮箱、GitHub 和 Demo 入口
 
-- Audit & Accounting：审计函证、IPO 盈余管理、内部控制分析
+## 项目覆盖
+
+- Audit & Accounting：审计函证流程、IPO 盈余管理、内部控制分析
 - Business Research & Consulting：大众汽车、陕西文旅、好利来、百度健康
 - AI x Finance：FinanceDoc AI、AGI 公司治理研究
 - Product & Coding：City Pizza 微信点餐小程序
-
-## 当前资源命名
-
-网站代码当前使用的简历文件名为：
-
-```text
-assets/resume/王渤函-会计.pdf
-assets/resume/王渤函-行研.pdf
-assets/resume/王渤函-HR.pdf
-```
-
-每份简历 PDF 均为中文在前、英文在后。
 
 ## 本地运行
 
@@ -47,69 +36,42 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-## Streamlit Cloud 部署
-
-```text
-Repository: starer1333/amber-personal-website
-Branch: main
-Main file path: app.py
-```
-
 ---
 
 # Amber Wang Portfolio Website
 
-This is a Streamlit-based career portfolio website for Amber Wang. It presents her positioning, project portfolio, AI tool experiments, latest resume and contact information.
+This is a bilingual Streamlit portfolio website built for internship and career applications. It presents Amber Wang's positioning, project evidence, downloadable deliverables, GitHub repositories and live demos across accounting, audit, business research, AI x finance, AI x healthcare and product prototyping.
 
-The core career story is:
+## Positioning
 
-- Accounting and audit foundation
-- Business analysis and industry research capability
-- AI x finance / AI x business workflow capability
-- Project-based communication with portfolio-ready outputs
+This portfolio is designed as a career-facing project system rather than a static resume page. Its core story is:
 
-## Features
+- using accounting and audit knowledge to understand financial data and business workflows
+- using business research and consulting-style communication to analyze industries, companies and business models
+- using AI-assisted coding and Streamlit to turn finance and business workflows into working tools
+- using project cards, logic maps and concise detail sections to make each project easy to understand and verify
 
-- Apple-inspired premium light-mode portfolio UI
-- Chinese / English language switch
-- Home, About, Projects, AI Lab, Resume and Contact sections
-- Filterable project gallery
-- Four-step logic map for every project: Problem -> Method -> Output -> Value
-- Project downloads, GitHub links and demo links
-- Resume-style project detail bullets
+## Site Structure
+
+The website includes:
+
+- Home: personal positioning, target directions and project overview
+- About: three capability pillars across accounting, business research and AI workflow building
+- Projects: filterable project gallery, four-step logic maps, downloads, GitHub links and demo links
+- AI Lab: AI finance tooling, prompt engineering, Streamlit workflows and mini-program prototypes
+- Resume: role-oriented resume downloads
+- Contact: email, GitHub and demo entry points
 
 ## Project Coverage
 
-The portfolio currently covers:
-
-- Audit & Accounting: audit confirmation, IPO earnings management and internal control analysis
+- Audit & Accounting: audit confirmation workflow, IPO earnings management and internal control analysis
 - Business Research & Consulting: Volkswagen, Shaanxi Tourism, Holiland and Baidu Health
 - AI x Finance: FinanceDoc AI and AGI corporate governance research
 - Product & Coding: City Pizza WeChat ordering mini program
-
-## Active Resume Assets
-
-The app currently uses these resume filenames:
-
-```text
-assets/resume/王渤函-会计.pdf
-assets/resume/王渤函-行研.pdf
-assets/resume/王渤函-HR.pdf
-```
-
-Each PDF includes Chinese first and English second.
 
 ## Run Locally
 
 ```bash
 pip install -r requirements.txt
 streamlit run app.py
-```
-
-## Streamlit Cloud Deployment
-
-```text
-Repository: starer1333/amber-personal-website
-Branch: main
-Main file path: app.py
 ```
