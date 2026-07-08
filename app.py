@@ -474,7 +474,7 @@ DOWNLOAD_FILES = {
     "holiland": "assets/projects/好利来营销策划案.pdf",
     "agi_governance_pdf": "assets/projects/AGI引入对公司治理效果的影响研究.pdf",
     "agi_defense_pdf": "assets/projects/论文答辩 .pdf",
-    "shaanxi_tourism": "assets/projects/陕西文旅公司分析.pptx",
+    "shaanxi_tourism": "assets/projects/陕西文旅公司分析.pdf",
     "volkswagen": "assets/projects/大众汽车集团行业研究.pdf",
     "baidu_health": "assets/projects/百度健康行业研究框架与战略分析.pdf",
 }
@@ -603,7 +603,7 @@ PROJECTS = {
             "tools": ["Prospectus", "Business Model", "Financial Analysis", "PPT"],
             "deliverables": ["IPO 商业分析 deck", "核心资产分析", "盈利质量判断"],
             "target_roles": ["咨询", "投研", "商业分析"],
-            "downloads": [{"label": "下载项目 PPTX", "path": DOWNLOAD_FILES["shaanxi_tourism"]}],
+            "downloads": [{"label": "下载项目 PDF", "path": DOWNLOAD_FILES["shaanxi_tourism"]}],
             "github_url": "",
             "demo_url": "",
             "image_file": "",
